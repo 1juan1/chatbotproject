@@ -2,10 +2,23 @@
     background-color: #E0FFE0;
 }
 
+div {
+  color: white;
+}
+
 h4 {
     padding: 0px;
     margin: 0px;
 }
+
+h1 {
+  color: white;
+}
+
+p {
+  color: white;
+}
+
 
 .btn-talk {
     -webkit-border-radius: 5;
