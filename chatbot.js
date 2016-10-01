@@ -3,6 +3,18 @@ var weekday = date.getUTCDay();
 var month = date.getMonth();
 var year = date.getFullYear();
 var day = date.getDate();
+var hour = date.getHours();
+var minute = date.getMinutes();
+
+function enter(event) {
+  var x = event.keyCode;
+  console.log(x);
+  if (x == 13){
+    askQuestion();
+  }
+
+}
+
 
 var weekDayConversion  = {
 0: "Sunday",
@@ -30,25 +42,40 @@ var monthConversion = {
   10: "November",
   11: "December"
 }
+var responses = {
+ "hey how are you?"  : "         did you just assume my gender",
+ "how old are you" : "ugh i have a   boyfriend",
+ "what is your age " : "i havvvvve no age ",
+
+"do u like chocolate": "yea i like dark chocolate",
+
+"what day is it": "The day today is " + weekDayConversion[weekday],
+"what month are we in" : "we are in " + monthConversion[month],
+"what year is it": "i think it is " + [year],
+"what date is it " : "the day is " + [day] + "of " + " "+ monthConversion[month],
+"what time is it" : "its currently" + " " + [hour] + ":" + [minute],
+"hello" : "hi my name is cortana hernadez the third"
+}
+var fallback = ["thats not what you asked before", "my creator doesnt allow me to answer that question", "what", "Sorry I dont know you or what you are saying"];
+
+
+
+
 
 
 function askQuestion(){
   var input = document.getElementById("input").value;
+  input = input.toLowerCase();
   var giveresponse = responses[input]
-  document.getElementById("chat-area").innerHTML += input + ": " + giveresponse + "<br>";
-
-}
 
 
-
- var responses = {
-  "Hey how are you?"  : "         did you just assume my gender",
-  "how old are you" : "ugh i have a   boyfriend",
-  "what is your age " : "i havvvvve no age ",
-
-"do u like chocolate": "yea i like dark chocolate",
-"what is the date": "The day today is " + weekDayConversion[weekday],
-"what month are we in" : "we are in " + monthConversion[month],
-"what year is it": "i think it is " + [year]
+  if  (responses[input] == undefined) {
+    var rand = Math.floor((Math.random() * fallback.length));
+     var fallbackAnswer = fallback[rand];
+       document.getElementById("chat-area").innerHTML += input + ": " + fallbackAnswer + "<br>";
+  }
+  else{
+    document.getElementById("chat-area").innerHTML += input + ": " + giveresponse + "<br>";
+  }
 
 }
