@@ -43,7 +43,7 @@ var monthConversion = {
   11: "December"
 }
 var responses = {
- "hey how are you?"  : "         did you just assume my gender",
+ " how are you"  : "         did you just assume my gender",
  "how old are you" : "ugh i have a   boyfriend",
  "what is your age " : "i havvvvve no age ",
 
