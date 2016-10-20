@@ -65,6 +65,7 @@ var fallback = ["thats not what you asked before", "my creator doesnt allow me t
 
 function askQuestion(){
   var input = document.getElementById("input").value;
+  console.log(input);
   input = input.toLowerCase();
   var giveresponse = responses[input]
 
@@ -74,7 +75,9 @@ function askQuestion(){
      var fallbackAnswer = fallback[rand];
        document.getElementById("chat-area").innerHTML += input + ": " + fallbackAnswer + "<br>";
   }
-  else{
+  else {
+    console.log("in the else statement");
+    console.log("giveresponse is " + giveresponse);
     document.getElementById("chat-area").innerHTML += input + ": " + giveresponse + "<br>";
   }
 
